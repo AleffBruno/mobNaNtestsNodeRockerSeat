@@ -1,0 +1,56 @@
+> foi utilizado $ npm i --save @rocketseat/omni para criar o instalador de projetos
+> apos isso $ ./node_modules/.bin/omni init modulo11 --only=server, com isso seja gerado o projeto
+> cria-se o '.env'
+> ir em app.js e descomentar a importação do banco...
+
+Sera usado o JEST
+$ yarn test <<< roda os testes
+> é necessario criar um .env.test
+> foi criado src/bootstrap.js , que é responsavel por inicializar algumas configs
+> foi importado 'bootstrap.js dentro de app.js'
+> foi importado 'bootstrap.js' dentro de src\config\database.js
+> tambem é necessario no "script" test do package.json, setar SET NODE_ENV=test ( veja o arquivo )
+> ir em src\config\database.js , e colocar condicional se e pra usar o banco de testes ou real {
+    adicione tambem >> storage: './__test__/database.sqlite' <<
+}
+$ yarn add jest -D
+$ yarn jest --init
+> dê "y" para todas as opções
+> crie a pasta __tests__ na raiz do projeto
+> foi criado jest.config.js {
+    bail: 1 => para os testes assim que for encontrado o primeiro erro
+    collectCoverage: true
+    coverageDirectory: '__tests__/coverage'
+    collectCoverageFrom: ['src/app/**/*.js'] => teste SOMENTE os arquivos .js dentro de src/app
+    coverageReporters : [
+        "text",
+        "lcov"
+    ]
+    testMatch: [  ONDE SE ENCONTRAM OS ARQUIVOS DE TESTE
+        "**/__tests__/**/*.test.js",
+    ]
+}
+> por padrao o node usa a sintaxe de 'require' do commonJS, é necessario adicionar $ yarn add --dev @sucrase/jest-plugin
+adicione o codigo em jest.config.js {
+    transform: {
+        ".(js|jsx|ts|tsx)": "@sucrase/jest-plugin"
+    },
+}
+> muda-se o nodemon.json {
+    "ignore": [
+        "__tests__"
+    ]
+}
+> dica: mesmo que nao esteja usando TypeScript, pode-se instalar $ yarn add -D @types/jest para ter o auto complete
+> se começa a criar os testes, é necessario a extensão ser '.test.js'
+
+
+
+INICIANDO O TESTES {
+    > nao é recomendado os testes serem rodados no banco de produção ou desenvolvimento
+    > foi adicionado scrips no package.json para rodar ANTES E DEPOIS do script de test
+    > ao adicionar "pre"{NOME_DA_CHAVE_DO_SCRIPT} no package , se executa uma função antes desse script
+    > ao adicionar "post"{NOME_DA_CHAVE_DO_SCRIPT} no package , se executa uma função depois desse script
+
+}
+
