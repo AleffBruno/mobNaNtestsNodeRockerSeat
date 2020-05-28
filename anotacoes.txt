@@ -58,6 +58,15 @@ INICIANDO O TESTES {
     > atente-se para instalar $ yarn add sqlite3 -D  se for necessario
     $ yarn add supertest -D
     > sera usado o supertest para fazer as requisições no ambiante de testes
+    > cada vez que um teste for rodar, seria interessante ter um ambiente completamente isolado e NOVO para cada testes
+    > foi criado a pasta 'util' , onde sera criado funções para auxiliar nos testes
+    > froi criado util/truncate.js que sera responsavel por zerar as tabelas antes de cada teste rodar
+    > "lifeCycleTest" {
+        beforeAll() : execute UMA vez antes dos testes
+        beforeEach() : execute UMA vez antes de CADA teste
+        afterAll()
+        afterEach
+    }
 }
 
 

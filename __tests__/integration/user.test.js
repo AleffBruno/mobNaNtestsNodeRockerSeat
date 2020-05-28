@@ -1,7 +1,14 @@
 import request from 'supertest';
 import app from '../../src/app';
 
+import truncate from '../util/truncate'
+
 describe('User', () => {
+
+    beforeEach(async () => {
+        await truncate();
+    })
+
     it('should ne able to register', async () => {
         const response = await request(app)
             .post('/users')
@@ -31,6 +38,6 @@ describe('User', () => {
             password_hash: '123456'
         });
 
-        expect(response.body).toBe(400);
+        expect(response.status).toBe(400);
     })
 })
