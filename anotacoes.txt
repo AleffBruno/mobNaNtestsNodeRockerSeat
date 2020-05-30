@@ -67,6 +67,14 @@ INICIANDO O TESTES {
         afterAll()
         afterEach
     }
+    > caso os "logging" de queries no database estejam atrapalhando a visualisação do resumo dos testes, é possivel passar uma configuração nas configs do database chamada "logging: false", com isso nao sera mostrado mais loggins de queries
+    Dados fakes {
+        $ yarn add -D factory-girl faker
+        > foi criado o arquivo factories.js ( veja o arquivo )
+        > depois de feito o arquivo factories.js é necessario atualizar o user.test.js para utilizar dados fakes
+        OBS > quando se passa "dados de criação" para o factory.create, ele SOBESCREVE os dados fakes...
+        > factory.attrs('{NOME_DA_FACTORY}') , retorna apenas os dados aleatorios
+    }
 }
 
 
